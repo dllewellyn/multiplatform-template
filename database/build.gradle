@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.squareup.sqldelight:gradle-plugin:1.2.0'
+    }
+}
+
+apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: "com.squareup.sqldelight"
+
+group = "com.autosynch"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+    jcenter()
+    google()
+}
+
+sqldelight {
+    CharacterDatabase {
+        packageName = "com.auto.synch.database"
+    }
+}
+
+kotlin {
+    jvm()
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                implementation "com.squareup.sqldelight:sqlite-driver:1.2.0"
+            }
+        }
+    }
+}
