@@ -13,5 +13,5 @@ pluginManagement {
 
 rootProject.name = "Auto synchronise"
 
-include(":client", ":models", ":database")
+include(":client", ":models", ":database", ":javaapp")
 enableFeaturePreview('GRADLE_METADATA')

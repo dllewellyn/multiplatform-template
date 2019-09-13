@@ -9,13 +9,13 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-fun main() {
+fun executeMe() {
 
     print(Db.getDb().characterQueries.selectAllCharacters().executeAsList())
 
 
     GlobalScope.launch {
-        val data = ClientFactory.client().get<CharacterApi>("https://anapioficeandfire.com/models/characters/583")
+        val data = ClientFactory.client().get<CharacterApi>("https://anapioficeandfire.com/api/characters/583")
         print(data)
 
         Db.getDb().characterQueries.insertCharacter(
@@ -30,6 +30,4 @@ fun main() {
         print(Db.getDb().characterQueries.selectAllCharacters().executeAsList())
 
     }
-
-    readLine()
 }
