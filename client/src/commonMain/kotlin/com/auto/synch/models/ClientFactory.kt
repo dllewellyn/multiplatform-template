@@ -1,4 +1,4 @@
-package com.auto.synch.api
+package com.auto.synch.models
 
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature

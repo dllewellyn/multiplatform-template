@@ -1,0 +1,14 @@
+CREATE TABLE gotCharacter (
+  name TEXT NOT NULL,
+  gender TEXT NOT NULL,
+  culture TEXT NOT NULL,
+  born TEXT NOT NULL
+);
+
+INSERT INTO gotCharacter VALUES ("Alysanne Osgrey", "Female", "Bravoosi", "In 188 AC");
+
+selectAllCharacters:
+SELECT * FROM gotCharacter;
+
+insertCharacter:
+INSERT INTO gotCharacter VALUES ?;
