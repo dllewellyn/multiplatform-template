@@ -1,6 +1,6 @@
 package com.auto.synch
 
-import com.auto.synch.database.Db
+import com.auto.synch.database.CharacterDb
 import com.auto.synch.database.GotCharacter
 import com.auto.synch.models.CharacterApi
 import com.auto.synch.models.ClientFactory
@@ -11,14 +11,24 @@ import kotlinx.coroutines.launch
 
 fun executeMe() {
 
-    print(Db.getDb().characterQueries.selectAllCharacters().executeAsList())
-
+    val db = CharacterDb()
+    db.registerForReceiver {
+        print("List")
+        val data = it.map { character ->
+            CharacterApi(
+                character.name,
+                character.born,
+                character.culture,
+                character.gender
+            )
+        }
+        print(data)
+    }
 
     GlobalScope.launch {
         val data = ClientFactory.client().get<CharacterApi>("https://anapioficeandfire.com/api/characters/583")
         print(data)
-
-        Db.getDb().characterQueries.insertCharacter(
+        db.addCharacter(
             GotCharacter.Impl(
                 name = data.name,
                 born = data.born,
@@ -26,8 +36,7 @@ fun executeMe() {
                 gender = data.gender
             )
         )
-
-        print(Db.getDb().characterQueries.selectAllCharacters().executeAsList())
-
     }
+
+    readLine()
 }
