@@ -16,3 +16,8 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.3.50")
     }
 }
+
+plugins {
+    id("org.jetbrains.kotlin.jvm") version "1.3.50"
+    kotlin("kapt" )version "1.3.50"
+}
