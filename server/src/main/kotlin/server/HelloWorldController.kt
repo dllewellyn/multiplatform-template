@@ -9,4 +9,4 @@ class HelloWorldController {
 
     @Get("hello")
     fun hello() = helloWorldLogic()
-}gi
+}

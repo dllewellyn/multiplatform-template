@@ -19,5 +19,11 @@ buildscript {
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.3.50"
-    kotlin("kapt" )version "1.3.50"
+    kotlin("kapt") version "1.3.50"
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenLocal()
 }
