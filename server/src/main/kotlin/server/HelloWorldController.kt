@@ -1,5 +1,6 @@
 package server
 
+import com.auto.synch.core.helloWorldLogic
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 
@@ -7,5 +8,5 @@ import io.micronaut.http.annotation.Get
 class HelloWorldController {
 
     @Get("hello")
-    fun hello() = "Hello world"
-}
+    fun hello() = helloWorldLogic()
+}gi
